@@ -23,6 +23,7 @@ int cf(int a,int b){
 int main(){
    int m,n;
    int t;
+   int a=0;
    scanf("%d %d",&m,&n);
    for(int i=m;i<=n;i++){
       t=1;//t的目的：第几位计数器
@@ -30,7 +31,13 @@ int main(){
       while(cf(10,t)<pow){//A：乘方函数，不用管，你可以自己在主函数里写循环求这个东西，也可以网上搜索有没其他方案
          //上面这个while：从最后一位遍历，判断是否遍历完平方数的每一位
          if(i==pow%cf(10,t)){
-            printf("%d ",i);//如果相等输出，并退出循环
+            if(a==0){
+               printf("%d",i);
+               a=1;
+            }else{
+               printf(" %d",i);
+            }
+            //printf("%d ",i);//如果相等输出，并退出循环
             break;
          }else{
             t+=1;//不相等说明不符合，再向前遍历一位
